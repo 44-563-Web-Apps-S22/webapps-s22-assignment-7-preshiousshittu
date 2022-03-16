@@ -34,6 +34,8 @@
 	<p> Press the button to create an new element of type div and then add it to the container.
 		</p>
 		<button onclick="makeNewDiv()">Add value</button>
+		<button onclick="fetchItem()">Fetch</button>
+		<button onclick="zap()">Zap</button>
 	
 	
 </body>
@@ -47,6 +49,30 @@
 		let container = document.getElementById('target')
 		container.insertBefore(element, container.firstChild)
 		
+	}
+
+	function fetchItem(){
+		var queueItems = document.getElementsByClassName("queue") 
+		var len = queueItems.length
+		let container = document.getElementById('target')
+		if(len > 0){
+			queueItems[len - 1].remove
+			console.log(len);
+		}
+
+	}
+
+	function zap(){
+		var queueItems = document.getElementsByClassName("queue") 
+		inputVal = document.getElementById("input").value
+		for (const x of queueItems) {
+			if(x.value == inputVal){
+				queueItems[queueItems.indexOf(x)].remove
+				console.log(x + "was removed");
+			}
+		}
+
+
 	}
 </script>
 </html>	
